@@ -5,7 +5,7 @@ export const allProjects = [
     title: "Select Risk Services",
     description: "• Freelanced to design and develop a web application to empower organizations with risk assessment and mitigation strategies • Implemented algorithms to calculate industry-specific risks • Provided mitigation recommendations for proactive risk management • Technologies: Django, JavaScript",
     repository: "",
-    url: "",
+    url: "www.selectriskservices.co.zw",
     _id: "",
     type: "",
     path: "",
@@ -14,7 +14,7 @@ export const allProjects = [
   {
     published: true,
     title: "Taskify",
-    description: "A minimal library for access control. It is designed to be used together with opaque access tokens by providing a simple interface to define roles with different access permissions and verifying requests to resources.",
+    description: "• A functional Kanban-style task management application inspired by Trello. It utilizes boards, cards, and intuitive drag-and-drop functionality to help users visualize workflows and manage projects collaboratively • Technologies: TypeScript, NextJS",
     repository: "",
     url: "",
     _id: '',
@@ -26,7 +26,7 @@ export const allProjects = [
     published: true,
     title: "Open Table",
     description:
-      "A minimal library for access control. It is designed to be used together with opaque access tokens by providing a simple interface to define roles with different access permissions and verifying requests to resources.",
+      "• A full-fledged restaurant reservation system similar to OpenTable. Diners can effortlessly browse menus, search by cuisine, and secure tables at their favorite restaurants. The platform streamlines the reservation process for both diners and restaurants, offering features like real-time table availability and booking confirmation   • Technologies: TypeScript, NextJS",
     repository: "",
     url: "",
     _id: "",

@@ -49,7 +49,7 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-export const calSans = LocalFont({
+const calSans = LocalFont({
   src: "../public/fonts/CalSans-SemiBold.ttf",
   variable: "--font-calsans",
 });

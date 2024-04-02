@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import Particles from "@/components/particles";
-import { calSans } from "./layout";
+import LocalFont from "next/font/local";
 import { bio_texts } from "@/lib/bio";
 
 
@@ -10,7 +10,22 @@ const navigation = [
   { name: "Contact", href: "/contact" },
 ];
 
+const calSans = LocalFont({
+  src: "../public/fonts/CalSans-SemiBold.ttf",
+  variable: "--font-calsans",
+});
+
 export default function HomePage() {
+
+  const getRandomIntInclusive = (min: number, max: number): number => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  
+  const randomNumber = getRandomIntInclusive(0, bio_texts.length - 1);
+
+
   return (
     <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
       <nav className="my-16 animate-fade-in">
@@ -39,7 +54,7 @@ export default function HomePage() {
 
       <div className="my-16 text-center animate-fade-in">
         <h2 className="text-sm text-zinc-500 w-[60%] mx-auto">
-            {bio_texts[4]}
+            {bio_texts[randomNumber]}
         </h2>
       </div>
     </div>

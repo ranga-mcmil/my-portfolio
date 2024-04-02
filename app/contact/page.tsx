@@ -40,7 +40,7 @@ export default async function ProjectsPage() {
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Contact
           </h2>
-          <p className="mt-4 text-zinc-400">Here's how you can reach me.</p>
+          <p className="mt-4 text-zinc-400">Heres how you can reach me.</p>
         </div>
         <div className="w-full h-px bg-zinc-800" />
 
