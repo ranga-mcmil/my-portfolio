@@ -20,7 +20,7 @@ export const Header: React.FC<Props> = ({ project }) => {
 	if (project.repository) {
 		links.push({
 			label: "GitHub",
-			href: `https://github.com/${project.repository}`,
+			href: project.repository,
 		});
 	}
 	if (project.url) {
@@ -29,6 +29,7 @@ export const Header: React.FC<Props> = ({ project }) => {
 			href: project.url,
 		});
 	}
+
 	useEffect(() => {
 		if (!ref.current) return;
 		const observer = new IntersectionObserver(([entry]) =>
@@ -94,6 +95,7 @@ export const Header: React.FC<Props> = ({ project }) => {
 								<Link target="_blank" key={link.label} href={link.href}>
 									{link.label} <span aria-hidden="true">&rarr;</span>
 								</Link>
+		
 							))}
 						</div>
 					</div>
