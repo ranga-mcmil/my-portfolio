@@ -12,15 +12,15 @@ const socials = [
   },
   {
     icon: <Phone size={20} />,
-    href: "mailto:ranganaimukanhairi1@gmail.com",
+    href: "tel:+263774964536",
     label: "Phone",
     handle: "+263 77 496 4536",
   },
   {
     icon: <Linkedin size={20} />,
-    href: "mailto:ranganaimukanhairi1@gmail.com",
+    href: "https://www.linkedin.com/in/ranga-mukanhairi-5b6b8321b/",
     label: "LinkedIn",
-    handle: "ranganaimukanhairi1@gmail.com",
+    handle: "Ranga Mukanhairi",
   },
   {
     icon: <Github size={20} />,

@@ -4,4 +4,4 @@ export const bio_texts = [
     "Hi, I'm Ranga. When I'm not coding ⌨️, I'm probably listening to music 🎧 or watching movies 📺. But hey, let's build something awesome with Next.js & Django  !",
     "Hi, I'm Ranga ✌️. Got an idea? I can help turn it into reality with (Typescript & Python) & the power of Next.js & Django . Let's build something magical! ✨",
     "Hi, I'm Ranga. I bring the ☕️ coffee and the brains (Typescript & Python) to ✨ build amazing things with Next.js & Django  ! Let's do this! ",
-  ];
+];

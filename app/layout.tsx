@@ -10,40 +10,8 @@ export const metadata: Metadata = {
     template: "%s | Ranga",
   },
   description: "Full-stack developer",
-  openGraph: {
-    title: "ranga.co.zw",
-    description: "Ranga",
-    url: "https://ranga.co.zw",
-    siteName: "ranga.co.zw",
-    images: [
-      {
-        url: "https://chronark.com/og.png",
-        width: 1920,
-        height: 1080,
-      },
-    ],
-    locale: "en-US",
-    type: "website",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  twitter: {
-    title: "Chronark",
-    card: "summary_large_image",
-  },
-  icons: {
-    shortcut: "/favicon.png",
-  },
 };
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
