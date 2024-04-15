@@ -7,7 +7,9 @@ import { bio_texts } from "@/lib/bio";
 
 const navigation = [
   { name: "Projects", href: "/projects" },
-  { name: "Contact", href: "/contact" },
+  // { name: "Contact", href: "/contact" },
+  { name: "About Me", href: "/about" },
+
 ];
 
 const calSans = LocalFont({

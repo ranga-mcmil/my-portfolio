@@ -34,5 +34,17 @@ export const allProjects = [
     type: "",
     path: "",
     slug: "open-table",
-  }
+  },
+  {
+    published: true,
+    title: "Product Filters",
+    description: "• A product filtering application • Technologies: TypeScript, NextJS",
+    repository: "https://github.com/ranga-mcmil/product-filtering.git",
+    url: "http://62.72.16.100:3004/",
+    _id: '',
+    type: "",
+    path: "",
+    slug: "product-filters",
+  },
+
 ];

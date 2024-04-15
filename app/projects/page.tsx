@@ -82,7 +82,18 @@ export default async function ProjectsPage() {
             ))}
           </div>
         </div>
+
         <div className="hidden w-full h-px md:block bg-zinc-800" />
+
+        <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
+          {allProjects.slice(3).map(project => (
+            <div key={project.slug} className="grid grid-cols-1 gap-4">
+                <Card>
+                  <Article project={project} />
+                </Card>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
