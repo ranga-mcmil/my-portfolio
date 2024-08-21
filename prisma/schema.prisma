@@ -1,0 +1,38 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model Project {
+  id                String        @id @default(uuid()) // Unique identifier
+  published         Boolean       // Indicates if the project is published
+  title             String        // Title of the project
+  short_description String       // Short description of the project
+  long_description  String       // Detailed description of the project
+  repository        String?       // Optional link to the project's repository
+  url               String?       // Optional link to the live project
+  type              String?       // Optional type of the project
+  path              String?       // Optional path of the project
+  slug              String        @unique // URL-friendly slug for the project, must be unique
+  featured          Boolean       @default(false) // Indicates if the project is the featured project  
+  createdAt         DateTime      @default(now()) // Timestamp of when the project was created
+  updatedAt         DateTime      @updatedAt // Timestamp of when the project was last updated
+  
+  technologies      String[]       // Array of strings to store technology names
+}
+
+model BioText {
+  id        String   @id @default(uuid())
+  content   String
+}

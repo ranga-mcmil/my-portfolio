@@ -1,16 +1,24 @@
 import Link from "next/link";
 import React from "react";
 import Particles from "@/components/particles";
-import { calSans } from "./layout";
-import { bio_texts } from "@/lib/bio";
-
+import LocalFont from "next/font/local";
+import { fetchRandomBioText } from "@/lib/actions/bio.actions";
 
 const navigation = [
   { name: "Projects", href: "/projects" },
-  { name: "Contact", href: "/contact" },
+  // { name: "Contact", href: "/contact" },
+  { name: "About Me", href: "/about" },
+
 ];
 
-export default function HomePage() {
+const calSans = LocalFont({
+  src: "../public/fonts/CalSans-SemiBold.ttf",
+  variable: "--font-calsans",
+});
+
+export default async function HomePage() {
+  const bio_text = await fetchRandomBioText()
+
   return (
     <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
       <nav className="my-16 animate-fade-in">
@@ -39,10 +47,10 @@ export default function HomePage() {
 
       <div className="my-16 text-center animate-fade-in">
         <h2 className="text-sm text-zinc-500 w-[60%] mx-auto">
-            {bio_texts[4]}
+            {/* {bio_text?.content} */}
+            hey, i’m Ranga 👋 i’m a frontend developer
         </h2>
       </div>
     </div>
   );
-
 }

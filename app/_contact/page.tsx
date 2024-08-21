@@ -12,15 +12,15 @@ const socials = [
   },
   {
     icon: <Phone size={20} />,
-    href: "mailto:ranganaimukanhairi1@gmail.com",
+    href: "tel:+263774964536",
     label: "Phone",
     handle: "+263 77 496 4536",
   },
   {
     icon: <Linkedin size={20} />,
-    href: "mailto:ranganaimukanhairi1@gmail.com",
+    href: "https://www.linkedin.com/in/ranga-mukanhairi-5b6b8321b/",
     label: "LinkedIn",
-    handle: "ranganaimukanhairi1@gmail.com",
+    handle: "Ranga Mukanhairi",
   },
   {
     icon: <Github size={20} />,
@@ -40,7 +40,7 @@ export default async function ProjectsPage() {
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Contact
           </h2>
-          <p className="mt-4 text-zinc-400">Here's how you can reach me.</p>
+          <p className="mt-4 text-zinc-400">Heres how you can reach me.</p>
         </div>
         <div className="w-full h-px bg-zinc-800" />
 

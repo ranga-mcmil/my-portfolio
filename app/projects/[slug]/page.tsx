@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
-import { allProjects } from "@/lib/projects";
 import { Header } from "./_components/header";
+import { fetchProjectBySlug } from "@/lib/actions/projects.actions";
 
 type Props = {
   params: {
@@ -8,17 +8,9 @@ type Props = {
   };
 };
 
-export async function generateStaticParams(): Promise<Props["params"][]> {
-  return allProjects
-    .filter((p) => p.published)
-    .map((p) => ({
-      slug: p.slug,
-    }));
-}
-
 export default async function PostPage({ params }: Props) {
   const slug = params?.slug;
-  const project = allProjects.find((project) => project.slug === slug);
+  const project = await fetchProjectBySlug(slug);
 
   if (!project) {
     notFound();
