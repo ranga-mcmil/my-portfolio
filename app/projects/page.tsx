@@ -3,10 +3,9 @@ import { Card } from "@/components/card";
 import { Navigation } from "@/components/nav";
 import { Article } from "./_components/article";
 import { fetchFirstFeaturedProject, fetchPublishedProjects } from "@/lib/actions/projects.actions";
+import React from "react";
 
 export default async function ProjectsPage() {
-
-  // const featured = allProjects.find((project) => project.slug === "select-risk-services")!;
   const featured = await fetchFirstFeaturedProject()
   const allProjects = await fetchPublishedProjects();
 
@@ -14,6 +13,7 @@ export default async function ProjectsPage() {
   return (
     <div className="container flex items-center justify-center min-h-screen px-4 mx-auto relative pb-16">
       <Navigation />
+      {/*       
       <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
@@ -82,6 +82,79 @@ export default async function ProjectsPage() {
               </Card>
             </div>
           ))}
+        </div>
+      </div> */}
+
+
+      <div className="container mx-auto relative isolate overflow-hidden  py-24 sm:py-32">
+        <div className="text-zinc-500  min-h-screen">
+          <div className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto">
+            <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+              <article className="px-4 mx-auto prose prose-zinc prose-quoteless">
+                <section>
+                  <h1 className="font-medium text-2xl mb-8 tracking-tighter text-neutral-400">projects</h1>
+                  <div className="prose prose-neutral dark:prose-invert">
+                    <p>
+                      Some of the projects are from work and some are on my own time.</p>
+
+                    {featured && (
+                      <React.Fragment key={featured.id}>
+                        <hr className="my-6 border-neutral-800" />
+                        <h2 className="font-medium text-xl mb-1 tracking-tighter text-neutral-400">{featured.title}</h2>
+                        <p className="text-neutral-600 dark:text-neutral-400 text-sm">
+                          {featured.technologies.map(technology => (<>{technology}, </>))}
+                        </p>
+                        <p>
+                          {featured.short_description}
+                        </p>
+
+                        <p className="font-medium text-neutral-400 text-sm mt-5 ">
+                          <Link href={`/projects/${featured.slug}`} className="mr-3">
+                            View Project <span aria-hidden="true">&rarr;</span>
+                          </Link>
+                        </p>
+                      </React.Fragment>
+                    )}
+
+
+                    {allProjects.map((project) => (
+                      <React.Fragment key={project.id}>
+                        <hr className="my-6 border-neutral-800" />
+                        <h2 className="font-medium text-xl mb-1 tracking-tighter text-neutral-400">{project.title}</h2>
+                        <p className="text-neutral-600 dark:text-neutral-400 text-sm">
+                          {project.technologies.map(technology => (<>{technology}, </>))}
+                        </p>
+                        <p>
+                          {project.short_description}
+                        </p>
+
+                        <p className="font-medium text-neutral-400 text-sm mt-5 ">
+                          <Link href={`/projects/${project.slug}`} className="mr-3">
+                            View Project <span aria-hidden="true">&rarr;</span>
+                          </Link>
+                        </p>
+                      </React.Fragment>
+                    ))}
+
+
+
+
+
+
+
+
+
+                  </div>
+
+
+
+                </section>
+
+              </article>
+            </main>
+          </div>
+
+
         </div>
       </div>
     </div>
