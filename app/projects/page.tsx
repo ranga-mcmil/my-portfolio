@@ -1,13 +1,10 @@
-import Link from "next/link";
 import { Navigation } from "@/components/nav";
-import { fetchFirstFeaturedProject, fetchPublishedProjects } from "@/lib/actions/projects.actions";
-import React from "react";
-import { ProjectCard } from "@/components/project-card";
+import React, { Suspense } from "react";
+import { ProjectsList } from "@/components/projects-list";
+import { ProjectCardListSkeleton } from "@/components/project-card-list-skeleton";
 
 export default async function ProjectsPage() {
-  const featured = await fetchFirstFeaturedProject()
-  const allProjects = await fetchPublishedProjects();
-
+  
   return (
     <div className="container flex items-center justify-center min-h-screen px-4 mx-auto relative pb-16">
       <Navigation />
@@ -21,15 +18,9 @@ export default async function ProjectsPage() {
                   <h1 className="font-medium text-2xl mb-8 tracking-tighter text-neutral-400">projects</h1>
                   <div className="prose prose-neutral dark:prose-invert">
                     <p>Some of the projects are from work and some are on my own time.</p>
-
-                    {featured && (
-                      <ProjectCard key={featured.id} project={featured}/>
-                    )}
-                    
-
-                    {allProjects.map((project) => (
-                      <ProjectCard key={project.id}  project={project}/>
-                    ))}
+                    <Suspense fallback={<ProjectCardListSkeleton />}>
+                      <ProjectsList />
+                    </Suspense>
                   </div>
                 </section>
               </article>

@@ -1,10 +1,10 @@
 import { Navigation } from "@/components/nav";
-import { fetchWorks } from "@/lib/actions/works.actions";
-import { db } from "@/lib/db";
+import { WorksList } from "@/components/works-list";
+import { WorksListSkeleton } from "@/components/works-list-skeleton";
+import { Suspense } from "react";
 
 
 export default async function AboutPage() {
-  const works = await fetchWorks()
 
   return (
     <header className="relative isolate overflow-hidden bg-gradient-to-tl min-h-screen from-black via-zinc-900 to-black">
@@ -22,15 +22,9 @@ export default async function AboutPage() {
                       i’ve spent a couple years mastering technologies like React, Next.js, and TypeScript to build web apps that are as fast as they are good-looking. My experience spans creating full-stack applications where I not only craft engaging user interfaces but also build robust backend systems
                     </p>
 
-                    {works.map(work => (
-                      <div key={work.id}>
-                        <hr className="my-6 border-neutral-800" />
-                        <h2 className="font-medium text-xl mb-1 tracking-tighter text-neutral-400">{work.companyName}</h2>
-                        <p className="text-neutral-600 dark:text-neutral-400 text-sm">
-                          {work.jobTitle}, {work.yearStarted} — {work.yearEnded ? work.yearEnded : "present"}
-                        </p>
-                      </div>
-                    ))}
+                    <Suspense fallback={<WorksListSkeleton />}>
+                      <WorksList />
+                    </Suspense>
                   </div>
                 </section>
               </article>
@@ -39,9 +33,5 @@ export default async function AboutPage() {
         </div>
       </div>
     </header>
-
-    
-
-
   );
 }

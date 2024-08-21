@@ -4,6 +4,8 @@ import { BioText } from "@prisma/client";
 import { db } from "../db";
 
 export async function fetchRandomBioText(): Promise<BioText | null> {
+
+
     try {
       const result = await db.$queryRaw<BioText[]>`
         SELECT * FROM "BioText"

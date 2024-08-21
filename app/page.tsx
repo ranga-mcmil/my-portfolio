@@ -1,8 +1,10 @@
 import Link from "next/link";
-import React from "react";
+import React, { Suspense } from "react";
 import Particles from "@/components/particles";
 import LocalFont from "next/font/local";
 import { fetchRandomBioText } from "@/lib/actions/bio.actions";
+import { BioText } from "@/components/bio-text";
+import { BioTextSkeleton } from "@/components/bio-text-skeleton";
 
 const navigation = [
   { name: "Projects", href: "/projects" },
@@ -16,7 +18,6 @@ const calSans = LocalFont({
 });
 
 export default async function HomePage() {
-  const bio_text = await fetchRandomBioText()
 
   return (
     <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
@@ -45,9 +46,10 @@ export default async function HomePage() {
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
       <div className="my-16 text-center animate-fade-in">
-        <h2 className="text-sm text-zinc-500 w-[60%] mx-auto">
-            {bio_text?.content}
-        </h2>
+        
+          <Suspense fallback={<BioTextSkeleton />}>
+            <BioText />
+          </Suspense>
       </div>
     </div>
   );

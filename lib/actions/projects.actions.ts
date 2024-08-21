@@ -28,7 +28,7 @@ export async function fetchProjectBySlug(slug: string) : Promise<Project | null>
     }
 }
 
-export async function fetchFirstFeaturedProject() : Promise<Project | null> {    
+export async function fetchFirstFeaturedProject() : Promise<Project | null> {   
     try {
         const project = await db.project.findFirst({
             where: { featured: true },
@@ -38,19 +38,3 @@ export async function fetchFirstFeaturedProject() : Promise<Project | null> {
         throw new Error(error)
     }
 }
-
-// export async function fetchSecondFeaturedProject() : Promise<Project | null> {    
-//     try {
-//         const secondFeaturedProject = await db.project.findMany({
-//             where: { featured: true },
-//             orderBy: { createdAt: 'asc' }, // Order by a specific field to ensure consistent results
-//             skip: 1, // Skip the first record
-//             take: 1, // Take the next record (i.e., the second one)
-//           });
-//           return secondFeaturedProject[0] || null; // Return the first item in the array or null if none
-//     } catch (error:any) {
-//         throw new Error(error)
-//     }
-// }
-
-
