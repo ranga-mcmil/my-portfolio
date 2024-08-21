@@ -8,7 +8,6 @@ const navigation = [
   { name: "Projects", href: "/projects" },
   // { name: "Contact", href: "/contact" },
   { name: "About Me", href: "/about" },
-
 ];
 
 const calSans = LocalFont({
@@ -34,7 +33,7 @@ export default async function HomePage() {
           ))}
         </ul>
       </nav>
-      {/* <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" /> */}
+      <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <Particles
         className="absolute inset-0 -z-10 animate-fade-in"
         quantity={100}
@@ -43,12 +42,11 @@ export default async function HomePage() {
         ranga
       </h1>
 
-      {/* <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" /> */}
+      <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
       <div className="my-16 text-center animate-fade-in">
         <h2 className="text-sm text-zinc-500 w-[60%] mx-auto">
-            {/* {bio_text?.content} */}
-            hey, i’m Ranga 👋 i’m a frontend developer
+            {bio_text?.content}
         </h2>
       </div>
     </div>

@@ -15,7 +15,7 @@ datasource db {
 
 
 model Project {
-  id                String        @id @default(uuid()) // Unique identifier
+  id                Int           @id @default(autoincrement())
   published         Boolean       // Indicates if the project is published
   title             String        // Title of the project
   short_description String       // Short description of the project
@@ -33,6 +33,16 @@ model Project {
 }
 
 model BioText {
-  id        String   @id @default(uuid())
+  id           Int      @id @default(autoincrement())
   content   String
+}
+
+model WorkExperience {
+  id           Int      @id @default(autoincrement())
+  companyName  String
+  jobTitle     String
+  yearStarted  Int
+  yearEnded    Int?     // Optional field
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }

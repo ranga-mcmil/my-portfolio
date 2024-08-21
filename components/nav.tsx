@@ -1,9 +1,17 @@
 "use client";
+
 import { ArrowLeft, Github, Instagram, Phone } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 
 export const Navigation: React.FC = () => {
+  const router = useRouter();
+
+  const handleBack = () => {
+    router.back();
+  };
+
   return (
       <div
         className={`fixed inset-x-0 top-0 z-50 backdrop-blur  duration-200 border-b bg-zinc-900/0 border-transparent`}
@@ -33,7 +41,9 @@ export const Navigation: React.FC = () => {
             href="/"
             className="duration-200 text-zinc-300 hover:text-zinc-100"
           >
-            <ArrowLeft className="w-6 h-6 " />
+            <button onClick={handleBack}>
+              <ArrowLeft className="w-6 h-6 " />
+            </button>
           </Link>
         </div>
       </div>

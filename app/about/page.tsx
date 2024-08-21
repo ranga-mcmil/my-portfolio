@@ -1,7 +1,10 @@
 import { Navigation } from "@/components/nav";
+import { fetchWorks } from "@/lib/actions/works.actions";
+import { db } from "@/lib/db";
 
 
 export default async function AboutPage() {
+  const works = await fetchWorks()
 
   return (
     <header className="relative isolate overflow-hidden bg-gradient-to-tl min-h-screen from-black via-zinc-900 to-black">
@@ -16,48 +19,23 @@ export default async function AboutPage() {
                   <h1 className="font-medium text-2xl mb-8 tracking-tighter text-neutral-400">about me</h1>
                   <div className="prose prose-neutral dark:prose-invert">
                     <p>
-                    i’ve spent a couple years mastering technologies like React, Next.js, and TypeScript to build web apps that are as fast as they are good-looking. My experience spans creating full-stack applications where I not only craft engaging user interfaces but also build robust backend systems
+                      i’ve spent a couple years mastering technologies like React, Next.js, and TypeScript to build web apps that are as fast as they are good-looking. My experience spans creating full-stack applications where I not only craft engaging user interfaces but also build robust backend systems
                     </p>
 
-                    <hr className="my-6 border-neutral-800" />
-                    <h2 className="font-medium text-xl mb-1 tracking-tighter text-neutral-400">Tano Digital Solutions</h2>
-                    <p className="text-neutral-600 dark:text-neutral-400 text-sm">
-                      Software Developer, 2023 — present
-                    </p>
-                    {/* <p>
-                      Workiva ($WK) is a cloud platform for data reporting and compliance.
-                      During my time at Workiva, I gained my first production experience
-                      using React. I worked on tooling to help predict and alert and
-                      regressions in our SaaS platform, building a product similar to
-                      open-source tools like Sentry.
-                    </p> */}
-
-                    <hr className="my-6 border-neutral-800" />
-                    <h2 className="font-medium text-xl mb-1 tracking-tighter text-neutral-400">TBWA Zimbabwe</h2>
-                    <p className="text-neutral-600 dark:text-neutral-400 text-sm">
-                      Web Developer (Intern), 2021 — 2022 
-                    </p>
-                    {/* <p>
-                      Workiva ($WK) is a cloud platform for data reporting and compliance.
-                      During my time at Workiva, I gained my first production experience
-                      using React. I worked on tooling to help predict and alert and
-                      regressions in our SaaS platform, building a product similar to
-                      open-source tools like Sentry.
-                    </p> */}
-
-
-
+                    {works.map(work => (
+                      <div key={work.id}>
+                        <hr className="my-6 border-neutral-800" />
+                        <h2 className="font-medium text-xl mb-1 tracking-tighter text-neutral-400">{work.companyName}</h2>
+                        <p className="text-neutral-600 dark:text-neutral-400 text-sm">
+                          {work.jobTitle}, {work.yearStarted} — {work.yearEnded ? work.yearEnded : "present"}
+                        </p>
+                      </div>
+                    ))}
                   </div>
-
-                    
-                  
                 </section>
-
               </article>
             </main>
           </div>
-
-
         </div>
       </div>
     </header>
