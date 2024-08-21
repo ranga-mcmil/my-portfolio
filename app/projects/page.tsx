@@ -3,7 +3,6 @@ import { Navigation } from "@/components/nav";
 import { fetchFirstFeaturedProject, fetchPublishedProjects } from "@/lib/actions/projects.actions";
 import React from "react";
 import { ProjectCard } from "@/components/project-card";
-import { ProjectCardSkeleton } from "@/components/project-card-skeleton";
 
 export default async function ProjectsPage() {
   const featured = await fetchFirstFeaturedProject()
@@ -26,7 +25,7 @@ export default async function ProjectsPage() {
                     {featured && (
                       <ProjectCard key={featured.id} project={featured}/>
                     )}
-                    <ProjectCardSkeleton />
+                    
 
                     {allProjects.map((project) => (
                       <ProjectCard key={project.id}  project={project}/>
